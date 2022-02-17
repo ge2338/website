@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Home from './Home';
 import Login from './Login';
-import { ChakraProvider } from '@chakra-ui/react' 
-
-var PATHNAME = window.location.pathname
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import theme from './theme'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-        <Route path="/gademic" element={<Home/>}/>
-        <Route path='/gademic/login/' element={<Login/>}/>
-      </Routes>
-  </BrowserRouter>
-  ,
-  document.body
+    <HashRouter>
+      <ChakraProvider theme={theme}>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+        </Routes>
+      </ChakraProvider>
+    </HashRouter>,
+    document.getElementById('root')
 ); 
 
 
